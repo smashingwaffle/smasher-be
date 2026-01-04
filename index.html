@@ -3,68 +3,228 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>smasher.be</title>
+  <title>Stefaan Desmedt</title>
+  <meta name="description" content="Professional profile for Stefaan Desmedt." />
   <style>
-    body {
-      margin: 0;
-      background: #0b0f14;
-      color: #eaeef4;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    :root{
+      --bg: #0b0f14;
+      --card: rgba(255,255,255,0.04);
+      --card2: rgba(255,255,255,0.06);
+      --text: #eaeef4;
+      --muted: rgba(234,238,244,0.72);
+      --muted2: rgba(234,238,244,0.55);
+      --line: rgba(255,255,255,0.10);
+      --accent: #7dd3fc;
     }
-    .wrap {
-      max-width: 1100px;
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      background: radial-gradient(1200px 800px at 20% -10%, rgba(125,211,252,0.12), transparent 60%),
+                  radial-gradient(1000px 700px at 90% 10%, rgba(167,139,250,0.10), transparent 55%),
+                  var(--bg);
+      color: var(--text);
+      font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    }
+    a{ color: inherit; text-decoration: none; }
+    a:hover{ text-decoration: underline; text-underline-offset: 3px; }
+
+    .wrap{
+      max-width: 1024px;
       margin: 0 auto;
-      padding: 48px 24px;
+      padding: 56px 22px 40px;
     }
-    h1 {
-      font-size: 42px;
-      margin: 0 0 12px;
-      letter-spacing: -0.02em;
+
+    .top{
+      display:flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 26px;
     }
-    p {
-      opacity: 0.8;
-      margin-bottom: 32px;
+
+    .brand{
+      display:flex;
+      flex-direction: column;
+      gap: 8px;
     }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
+    h1{
+      margin:0;
+      font-size: 44px;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
     }
-    .tile {
-      aspect-ratio: 1 / 1;
-      border-radius: 14px;
-      background: #151c26;
-      border: 1px solid rgba(255,255,255,0.06);
+    .tag{
+      margin:0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.5;
+      max-width: 68ch;
     }
-    footer {
-      margin-top: 40px;
+
+    .badgebar{
+      display:flex;
+      gap: 10px;
+      align-items:center;
+      flex-wrap: wrap;
+      justify-content:flex-end;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 9px 12px;
+      border: 1px solid var(--line);
+      background: rgba(0,0,0,0.18);
+      border-radius: 999px;
       font-size: 14px;
-      opacity: 0.6;
+      color: var(--muted);
+      white-space: nowrap;
     }
-    @media (max-width: 900px) {
-      .grid { grid-template-columns: repeat(2, 1fr); }
+    .dot{
+      width:8px; height:8px; border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 18px rgba(125,211,252,0.55);
     }
-    @media (max-width: 500px) {
-      .grid { grid-template-columns: 1fr; }
-      h1 { font-size: 32px; }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 14px;
+      margin-top: 14px;
+    }
+    .card{
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, var(--card), rgba(0,0,0,0.10));
+      border-radius: 18px;
+      padding: 18px;
+    }
+    .card h2{
+      margin: 0 0 10px;
+      font-size: 16px;
+      letter-spacing: 0.01em;
+      color: rgba(234,238,244,0.92);
+    }
+    .card p{
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 15px;
+    }
+
+    .list{
+      display:flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .row{
+      display:flex;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.03);
+    }
+    .row span{
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .row a{
+      color: rgba(234,238,244,0.92);
+      font-size: 14px;
+    }
+
+    .footer{
+      margin-top: 18px;
+      display:flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      color: var(--muted2);
+      font-size: 13px;
+    }
+    .hamlink{
+      color: rgba(234,238,244,0.80);
+      border-bottom: 1px dashed rgba(234,238,244,0.30);
+      text-decoration:none;
+    }
+    .hamlink:hover{
+      text-decoration:none;
+      border-bottom-color: rgba(234,238,244,0.60);
+    }
+
+    @media (max-width: 920px){
+      .grid{ grid-template-columns: 1fr; }
+      .badgebar{ justify-content:flex-start; }
+    }
+    @media (max-width: 520px){
+      .wrap{ padding-top: 42px; }
+      h1{ font-size: 34px; }
     }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <h1>smasher.be</h1>
-    <p>Personal landing page. Photo collage coming next.</p>
 
-    <div class="grid">
-      <div class="tile"></div>
-      <div class="tile"></div>
-      <div class="tile"></div>
-      <div class="tile"></div>
-      <div class="tile"></div>
-      <div class="tile"></div>
+    <div class="top">
+      <div class="brand">
+        <h1>Stefaan Desmedt</h1>
+        <p class="tag">
+          Broadcast & live-event technology. Systems, networking, and scalable media workflows.
+        </p>
+      </div>
+
+      <div class="badgebar">
+        <div class="pill"><span class="dot"></span><span>Los Angeles / USA</span></div>
+        <div class="pill"><span>Available for consulting</span></div>
+      </div>
     </div>
 
-    <footer>© smasher.be</footer>
+    <div class="grid">
+      <section class="card">
+        <h2>Profile</h2>
+        <p>
+          I design and deploy high-performance media and networking systems for large-scale productions and installations.
+          Focus areas include SMPTE 2110 workflows, low-latency routing, practical operations, and reliable field execution.
+        </p>
+
+        <div class="list">
+          <div class="row">
+            <span>Email</span>
+            <a href="mailto:you@smasher.be">you@smasher.be</a>
+          </div>
+          <div class="row">
+            <span>LinkedIn</span>
+            <a href="#" target="_blank" rel="noopener">Add your LinkedIn URL</a>
+          </div>
+          <div class="row">
+            <span>GitHub</span>
+            <a href="https://github.com/smashingwaffle" target="_blank" rel="noopener">github.com/smashingwaffle</a>
+          </div>
+        </div>
+      </section>
+
+      <aside class="card">
+        <h2>Focus</h2>
+        <div class="list">
+          <div class="row"><span>Media Networks</span><span>SMPTE 2110 / PTP / IGMP</span></div>
+          <div class="row"><span>Infrastructure</span><span>High-throughput switching</span></div>
+          <div class="row"><span>Software</span><span>Python tooling & automation</span></div>
+          <div class="row"><span>Delivery</span><span>Documentation & ops</span></div>
+        </div>
+      </aside>
+    </div>
+
+    <div class="footer">
+      <span>© <span id="y"></span> smasher.be</span>
+      <a class="hamlink" href="https://example.com" target="_blank" rel="noopener">KO6IKR ;-)</a>
+    </div>
+
   </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
